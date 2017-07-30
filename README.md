@@ -6,11 +6,11 @@ This presents a great difficulty to those who are not familiar with the communit
 
 Currently, NT Government employees use Bushtel, which provides downloadable PDF slap maps, as well as online overlays for Google Maps showing street names and numbers. There are no colour coded maps, which makes it difficult to navigate based on the directions given by the local residents.
 
-[Example Slap Map](http://www.ntlis.nt.gov.au/hpa-services/slapmaps?community_id=500)
+[Example of old Slap Map](http://www.ntlis.nt.gov.au/hpa-services/slapmaps?community_id=500)
 
 Our project will address this by providing maps that have the colour and lot number of each house as well as identifying key landmarks. We will be using the existing geospatial data from Bushtel, and utilising an open source mobile app (GeoODK). This app will allow users to view colour coded maps on their mobile devices for easy navigation, and will allow them to upload corrections when required. For example, if a house is repainted a different colour, the user can fill in a quick form in the app, which is uploaded to the server and the map can be corrected. These maps will also be viewable in a web based format.
 
-[Web-Map for Gapuwiyak](https://jay-tuckey.github.io/red-house-blue-house/gapuwiyak_town_map.html)
+[New Web-Map for Gapuwiyak We Have Produced](https://jay-tuckey.github.io/red-house-blue-house/gapuwiyak_town_map.html)
 
 Our web map provides an interactive map with handy tools for zooming into the map, and also provides mouse-over tooltips to view extra data about each house or building. This is useful for marking shops, clinics and other landmarks.
 
