@@ -23,6 +23,8 @@ Our data flow goes like this:
 2. We pipe that data into a program called TileMill, along with sattelite imagery from Google. This generates an offline usable map, which is great for communities with limited internet access.
 3. We put the offline map into an app called GeoODK which allows a person in the community to collect data points with the colours of the building and any points of interest or other data. This data is fed back to an ODK Aggregation server in the cloud, to store and clean up the data. [Data Aggregate Server](https://red-house-blue-house.appspot.com/Aggregate.html)
 
+![geoodk app](https://github.com/jay-tuckey/red-house-blue-house/raw/master/GeoODK_Offline_Map.png)
+
 ![aggregate server screenshot](https://github.com/jay-tuckey/red-house-blue-house/raw/master/gapuwiyak_data.png "Aggregate Server Screenshot")
 
 4. From the ODK Aggregation server we pull the data and merge it with the shape imagery from Bushtel, creating a shapefile with the coloured shapes. We do this using a Python Jupyter Notebook.
