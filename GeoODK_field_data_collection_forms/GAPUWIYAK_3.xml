@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>GAPUWIYAK_3</h:title>
+    <model>
+      <instance>
+        <GAPUWIYAK_3 id="gapuwiyak_v1.2">
+          <start/>
+          <deviceid/>
+          <simserial/>
+          <collector_date>
+            <Collector/>
+            <date_time/>
+          </collector_date>
+          <coordinates/>
+          <record_type/>
+          <buildings>
+            <build_colour/>
+            <build_colour_other/>
+            <lot_number/>
+            <ground_elevated/>
+            <building_use/>
+            <building_use_other/>
+            <camp_location/>
+            <camp_location_other/>
+          </buildings>
+          <points_interest>
+            <points_interest/>
+            <points_interest_other/>
+            <poi_photo/>
+          </points_interest>
+          <addit_comments/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </GAPUWIYAK_3>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/GAPUWIYAK_3/start" type="dateTime"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/GAPUWIYAK_3/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/GAPUWIYAK_3/simserial" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/collector_date/Collector" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/collector_date/date_time" required="true()" type="dateTime"/>
+      <bind nodeset="/GAPUWIYAK_3/coordinates" required="true()" type="geopoint"/>
+      <bind nodeset="/GAPUWIYAK_3/record_type" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings" relevant="selected( /GAPUWIYAK_3/record_type  , 'building')"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/build_colour" required="true()" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/build_colour_other" relevant="selected(../build_colour, 'other')" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/lot_number" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/ground_elevated" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/building_use" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/building_use_other" relevant="selected(../building_use, 'other')" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/camp_location" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/buildings/camp_location_other" relevant="selected(../camp_location, 'other')" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/points_interest" relevant="selected( /GAPUWIYAK_3/record_type  , 'point_interest')"/>
+      <bind nodeset="/GAPUWIYAK_3/points_interest/points_interest" required="true()" type="select1"/>
+      <bind nodeset="/GAPUWIYAK_3/points_interest/points_interest_other" relevant="selected(../points_interest, 'other')" type="string"/>
+      <bind nodeset="/GAPUWIYAK_3/points_interest/poi_photo" type="binary"/>
+      <bind nodeset="/GAPUWIYAK_3/addit_comments" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/GAPUWIYAK_3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/GAPUWIYAK_3/collector_date">
+      <label>COLLECTOR AND DATE</label>
+      <input ref="/GAPUWIYAK_3/collector_date/Collector">
+        <label>Collector</label>
+        <hint>Record the names of the field officers, this is optional.</hint>
+      </input>
+      <input ref="/GAPUWIYAK_3/collector_date/date_time">
+        <label>Date time</label>
+        <hint>Record the current date from the mobile device (this is automatic just swipe through to the next page)</hint>
+      </input>
+    </group>
+    <input ref="/GAPUWIYAK_3/coordinates">
+      <label>Location</label>
+      <hint>Record the location of the building your are mapping by tapping on the building in the offline layer image/map loaded on your mobile device.</hint>
+    </input>
+    <select1 ref="/GAPUWIYAK_3/record_type">
+      <label>BUILDING OR POINT OF INTEREST</label>
+      <hint>Select the option you are recording, if you select the building option you will record the colour of the building. The point of interest is used to attribute the map.</hint>
+      <item>
+        <label>Building</label>
+        <value>building</value>
+      </item>
+      <item>
+        <label>Point of Interest</label>
+        <value>point_interest</value>
+      </item>
+    </select1>
+    <group ref="/GAPUWIYAK_3/buildings">
+      <label>FILL IN INFORMATION ON THE BUILDINGS</label>
+      <select1 ref="/GAPUWIYAK_3/buildings/build_colour">
+        <label>BUILDING COLOUR</label>
+        <hint>Select the major colour of the building. If the colour is not in the list select other and record the colour.</hint>
+        <item>
+          <label>Red</label>
+          <value>red</value>
+        </item>
+        <item>
+          <label>Light Blue</label>
+          <value>l_blue</value>
+        </item>
+        <item>
+          <label>Dark Blue</label>
+          <value>d_blue</value>
+        </item>
+        <item>
+          <label>Light Green</label>
+          <value>l_green</value>
+        </item>
+        <item>
+          <label>Dark Green</label>
+          <value>d_green</value>
+        </item>
+        <item>
+          <label>Yellow</label>
+          <value>yellow</value>
+        </item>
+        <item>
+          <label>Brown</label>
+          <value>brown</value>
+        </item>
+        <item>
+          <label>White</label>
+          <value>grey</value>
+        </item>
+        <item>
+          <label>Grey</label>
+          <value>white</value>
+        </item>
+        <item>
+          <label>Orange</label>
+          <value>orange</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/GAPUWIYAK_3/buildings/build_colour_other">
+        <label>Specify other.</label>
+      </input>
+      <input ref="/GAPUWIYAK_3/buildings/lot_number">
+        <label>BUILDING LOT NUMBER</label>
+        <hint>Record the lot number for the building - this is optional</hint>
+      </input>
+      <select1 ref="/GAPUWIYAK_3/buildings/ground_elevated">
+        <label>GROUND OR ELEVATED HOUSE</label>
+        <hint>Record if the house is a ground level or an elevated house - this is optional.</hint>
+        <item>
+          <label>Ground level house</label>
+          <value>ground</value>
+        </item>
+        <item>
+          <label>Elevated house</label>
+          <value>elevated</value>
+        </item>
+      </select1>
+      <select1 ref="/GAPUWIYAK_3/buildings/building_use">
+        <label>BUILDING USE</label>
+        <hint>Select from the list the description that best identifies the use of the building - if the correct description is not available select other and record the description.</hint>
+        <item>
+          <label>Residential</label>
+          <value>residential</value>
+        </item>
+        <item>
+          <label>Health Centre</label>
+          <value>health_centre</value>
+        </item>
+        <item>
+          <label>Police Station</label>
+          <value>police_station</value>
+        </item>
+        <item>
+          <label>Power and water services</label>
+          <value>pwr_water_services</value>
+        </item>
+        <item>
+          <label>Shop main</label>
+          <value>shop_main</value>
+        </item>
+        <item>
+          <label>Shop minor</label>
+          <value>shop_minor</value>
+        </item>
+        <item>
+          <label>Comercial services</label>
+          <value>comercial_services</value>
+        </item>
+        <item>
+          <label>School</label>
+          <value>school</value>
+        </item>
+        <item>
+          <label>Pre School</label>
+          <value>pre_school</value>
+        </item>
+        <item>
+          <label>Arts Centre</label>
+          <value>arts_centre</value>
+        </item>
+        <item>
+          <label>Council Office</label>
+          <value>council_office</value>
+        </item>
+        <item>
+          <label>Sports and Recreation</label>
+          <value>sport_rec</value>
+        </item>
+        <item>
+          <label>Women's shelter</label>
+          <value>womans_shelter</value>
+        </item>
+        <item>
+          <label>CDP (Commonwealth Development Program)</label>
+          <value>cdp</value>
+        </item>
+        <item>
+          <label>PMCC</label>
+          <value>pmcc</value>
+        </item>
+        <item>
+          <label>VOQ (Visiting Officer Quarters</label>
+          <value>voq</value>
+        </item>
+        <item>
+          <label>Commercial Accommodation</label>
+          <value>comercial_accommodation</value>
+        </item>
+        <item>
+          <label>Airport</label>
+          <value>airport</value>
+        </item>
+        <item>
+          <label>Department of Housing office</label>
+          <value>dho</value>
+        </item>
+        <item>
+          <label>Centrelink</label>
+          <value>centrelink</value>
+        </item>
+        <item>
+          <label>FAFT (Mother's group and key service provider)</label>
+          <value>faft</value>
+        </item>
+        <item>
+          <label>Strong Women Program</label>
+          <value>swp</value>
+        </item>
+        <item>
+          <label>Church</label>
+          <value>church</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/GAPUWIYAK_3/buildings/building_use_other">
+        <label>Specify other.</label>
+      </input>
+      <select1 ref="/GAPUWIYAK_3/buildings/camp_location">
+        <label>CAMP LOCATION NAME</label>
+        <hint>If the location is identified by a particular name select one of the descriptions in the list or select other and enter the description (this is optional)</hint>
+        <item>
+          <label>Top Camp</label>
+          <value>top_camp</value>
+        </item>
+        <item>
+          <label>Bottom Camp</label>
+          <value>bottom_camp</value>
+        </item>
+        <item>
+          <label>Army Camp</label>
+          <value>army_camp</value>
+        </item>
+        <item>
+          <label>Bush Camp</label>
+          <value>bush_camp</value>
+        </item>
+        <item>
+          <label>Beach Camp</label>
+          <value>beach_camp</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/GAPUWIYAK_3/buildings/camp_location_other">
+        <label>Specify other.</label>
+      </input>
+    </group>
+    <group ref="/GAPUWIYAK_3/points_interest">
+      <label>POINTS OF INTERESTS</label>
+      <select1 ref="/GAPUWIYAK_3/points_interest/points_interest">
+        <label>POINTS OF INTERESTS</label>
+        <hint>Record the location of any feature that is a point of reference e.g. boat ramp - if the point of interest is not in the list select other and record it.</hint>
+        <item>
+          <label>Boat ramp</label>
+          <value>boat_ramp</value>
+        </item>
+        <item>
+          <label>Tree</label>
+          <value>tree</value>
+        </item>
+        <item>
+          <label>Oval</label>
+          <value>oval</value>
+        </item>
+        <item>
+          <label>Basket ball court</label>
+          <value>basket_ball</value>
+        </item>
+        <item>
+          <label>Barge landing</label>
+          <value>barge_landing</value>
+        </item>
+        <item>
+          <label>Cemetery</label>
+          <value>cemetery</value>
+        </item>
+        <item>
+          <label>Ceremony Site</label>
+          <value>ceremony_site</value>
+        </item>
+        <item>
+          <label>Outstation road</label>
+          <value>outstation_road</value>
+        </item>
+        <item>
+          <label>Petrol Bowser</label>
+          <value>petrol_bowser</value>
+        </item>
+        <item>
+          <label>Other</label>
+          <value>other</value>
+        </item>
+      </select1>
+      <input ref="/GAPUWIYAK_3/points_interest/points_interest_other">
+        <label>Specify other.</label>
+      </input>
+      <upload mediatype="image/*" ref="/GAPUWIYAK_3/points_interest/poi_photo">
+        <label>PHOTOGRAPH OF THE POINT OF INTEREST</label>
+        <hint>This is optional</hint>
+      </upload>
+    </group>
+    <input ref="/GAPUWIYAK_3/addit_comments">
+      <label>Comments</label>
+      <hint>Enter any additional comments if required</hint>
+    </input>
+  </h:body>
+</h:html>
