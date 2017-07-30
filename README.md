@@ -1,4 +1,4 @@
-# red-house-blue-house
+# Red House, Blue House...
 Australian towns have a system of street names and numbers to allow us to navigate them. Remote Aboriginal communities typically do not. Street signs are usually non existent and house numbers are typically missing or obscured. The Aboriginal residents of East Arnhem Land do not use street names or numbers to identify a house, instead they use descriptive methods. The houses are painted in a variety of colours, and so they are often identified by colour and nearby prominent landmarks.
 For example, “I live in the blue house at the end of the road”.
 
@@ -28,3 +28,23 @@ Our data flow goes like this:
 4. From the ODK Aggregation server we pull the data and merge it with the shape imagery from Bushtel, creating a shapefile with the coloured shapes. We do this using a Python Jupyter Notebook.
 5. We can save the exported map to a HTML page for viewing on a computer: [Web-Map for Gapuwiyak](https://jay-tuckey.github.io/red-house-blue-house/gapuwiyak_town_map.html)
 6. We can also save the exported map as an offline layer, so that it can be viewed in the communities without internet connection.
+
+# Open Source Programs Used
+
+![python](https://www.python.org/static/img/python-logo@2x.png)
+
+[Python](https://www.python.org)
+
+![anaconda](https://www.continuum.io/sites/all/themes/continuum/assets/images/logos/logo-horizontal-large.svg)
+
+[Anaconda Python with Jupyter Notebook](https://www.continuum.io/downloads)
+
+[TileMill](https://tilemill-project.github.io/tilemill/)
+
+![qgis](http://www.qgis.org/en/_static/logo.png)
+
+[QGis](http://www.qgis.org/en/site/#)
+
+[GeoODK] (http://geoodk.com/)
+
+[ODK] (https://opendatakit.org/)
