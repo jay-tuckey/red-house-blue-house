@@ -45,6 +45,6 @@ Our data flow goes like this:
 
 [QGis](http://www.qgis.org/en/site/#)
 
-[GeoODK] (http://geoodk.com/)
+[GeoODK](http://geoodk.com/)
 
-[ODK] (https://opendatakit.org/)
+[ODK](https://opendatakit.org/)
