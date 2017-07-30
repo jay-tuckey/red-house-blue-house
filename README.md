@@ -47,4 +47,6 @@ Our data flow goes like this:
 
 [GeoODK](http://geoodk.com/)
 
+![odk](https://opendatakit.org/wp-content/themes/odksite2/images/logo.png)
+
 [ODK](https://opendatakit.org/)
